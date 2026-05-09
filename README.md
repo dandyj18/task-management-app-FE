@@ -2,22 +2,15 @@
 
 Aplikasi Manajemen Tugas bergaya Kanban premium yang dibangun menggunakan React, TypeScript, dan Vite. Didesain dengan prinsip UI/UX modern, animasi yang mulus, dan fitur lengkap untuk mengelola proyek dengan efisien.
 
-## ✨ Fitur-fitur
+## ✨ Fitur Utama
 
-- **Papan Kanban Drag & Drop**: Pindahkan tugas antar kolom dan ubah urutan kolom dengan mudah menggunakan `@dnd-kit`.
-- **Manajemen Tugas Lengkap**:
-  - Modal tugas mendetail dengan Judul, Deskripsi, Prioritas, dan Label.
-  - Pemilihan tenggat waktu (Due date) dengan tampilan kalender.
-  - Sub-tugas dan daftar periksa (checklist) dengan pelacakan progres.
-  - Komentar dan riwayat aktivitas.
-- **Lampiran File (Attachments)**: Unggah file, lihat gambar dalam pratinjau layar penuh (lightbox), dan unduh lampiran.
-- **Manajemen Ruang Kerja & Proyek**: Beralih antar proyek, undang anggota, dan kelola akses.
-- **UI/UX Premium**:
-  - Desain cantik dan responsif yang dibangun dengan **Tailwind CSS**.
-  - Mikro-animasi, transisi, dan modal yang mulus ditenagai oleh **Framer Motion**.
-  - Dialog konfirmasi kustom (tidak menggunakan peringatan bawaan browser).
-- **Portabilitas Data**: Ekspor papan Kanban Anda ke format file JSON dan impor kembali kapan saja.
-- **Manajemen State Lokal**: State saat ini dikelola sepenuhnya di sisi klien (client-side) menggunakan **Zustand**.
+- **Board Kanban**: Sistem _drag and drop_ tugas dan kolom menggunakan `@dnd-kit`.
+- **Manajemen Tugas**: Detail lengkap dengan prioritas, label, tenggat waktu, sub-tugas, dan komentar.
+- **Lampiran File**: Mendukung unggah, unduh, dan pratinjau gambar (lightbox).
+- **Manajemen Proyek**: Kelola berbagai proyek dan sistem *invite* anggota.
+- **UI/UX Premium**: Desain responsif dengan animasi mulus (Tailwind CSS + Framer Motion).
+- **Ekspor/Impor Data**: Simpan dan muat kembali data dalam format JSON.
+- **State Management**: Dikelola secara lokal di sisi klien menggunakan Zustand.
 
 ## 🛠️ Teknologi yang Digunakan
 
