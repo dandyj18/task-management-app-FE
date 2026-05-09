@@ -1,4 +1,4 @@
-# 🚀 Task Management App (Kanban Board)
+# 🚀 Task Management App
 
 A premium, fully-functional Kanban-style Task Management application built with React, TypeScript, and Vite. Designed with modern UI/UX principles, smooth animations, and a rich feature set for managing projects efficiently.
 
