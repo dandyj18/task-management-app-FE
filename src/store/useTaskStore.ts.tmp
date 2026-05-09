@@ -1,0 +1,70 @@
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import { Task, Column, TaskLabel, TaskPriority } from '../types/task';
+
+export interface Member {
+  id: string;
+  name: string;
+  email: string;
+  avatar: string;
+}
+
+export interface Project {
+  id: string;
+  name: string;
+}
+
+interface TaskState {
+  projects: Project[];
+  activeProjectId: string;
+  tasks: Task[];
+  columns: Column[];
+  searchQuery: string;
+  filters: {
+    label: TaskLabel | 'All';
+    assignee: string | 'All';
+  };
+  members: Record<string, Member[]>; // Map projectId -> Member[]
+  
+  setSearchQuery: (query: string) => void;
+  setFilter: (filter: Partial<TaskState['filters']>) => void;
+  
+  // Project Actions
+  setActiveProject: (id: string) => void;
+  addProject: (name: string) => void;
+  deleteProject: (id: string) => void;
+  
+  // Task Actions (filtered by project implicitly or explicitly)
+  addTask: (task: Omit<Task, 'id'>) => void;
+  updateTask: (id: string, task: Partial<Task>) => void;
+  deleteTask: (id: string) => void;
+  moveTask: (taskId: string, newColumnId: string) => void;
+  reorderTasks: (columnId: string, startIndex: number, endIndex: number) => void;
+  
+  exportTasks: () => void;
+  importTasks: (fileContent: string) => void;
+  
+  // Member Actions (scoped to project)
+  addMember: (projectId: string, member: Omit<Member, 'id'>) => void;
+  removeMember: (projectId: string, memberId: string) => void;
+}
+
+const INITIAL_PROJECTS: Project[] = [
+  { id: 'p1', name: 'Adhivasindo' },
+  { id: 'p2', name: 'Northern Light' },
+];
+
+const INITIAL_MEMBERS: Record<string, Member[]> = {
+  'p1': [
+    { id: 'm1', name: 'Alex Rivera', email: 'alex@example.com', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alex' },
+    { id: 'm2', name: 'Sofia Chen', email: 'sofia@example.com', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sofia' },
+    { id: 'm3', name: 'Jordan Smith', email: 'jordan@example.com', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Jordan' },
+    { id: 'm4', name: 'Mia Wong', email: 'mia@example.com', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mia' },
+  ],
+  'p2': [
+    { id: 'm5', name: 'Steve Jobs', email: 'steve@apple.com', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Steve' },
+  ]
+};
+
+// We add projectId to Task interface implicitly in the store state or modify the type
+// For simplicity, let's add projectId to Task type in types/task.ts first.

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary: #4f46e5;
+  --bg-main: #f8fafc;
+  
+  /* Label Colors - Soft/Pastel */
+  --label-feature-bg: #e0e7ff;
+  --label-feature-text: #4338ca;
+  --label-bug-bg: #fee2e2;
+  --label-bug-text: #b91c1c;
+  --label-issue-bg: #ffedd5;
+  --label-issue-text: #c2410c;
+  --label-undefined-bg: #f1f5f9;
+  --label-undefined-text: #475569;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-[#f8fafc] text-slate-900 antialiased;
+}
+
+.board-container {
+  @apply flex gap-8 p-8 overflow-x-auto min-h-[calc(100vh-80px)];
+}
+
+.column-container {
+  @apply flex flex-col flex-shrink-0;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
