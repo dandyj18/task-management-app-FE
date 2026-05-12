@@ -64,8 +64,6 @@ export const Board: React.FC<BoardProps> = ({ onAddTask, onTaskClick }) => {
     if (task) setActiveTask(task);
   };
 
-  const handleDragOver = () => {};
-
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     if (!over) {
@@ -104,7 +102,6 @@ export const Board: React.FC<BoardProps> = ({ onAddTask, onTaskClick }) => {
         sensors={sensors}
         collisionDetection={closestCorners}
         onDragStart={handleDragStart}
-        onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
         {columns
